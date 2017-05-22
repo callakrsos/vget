@@ -14,9 +14,9 @@ public class YouTubeMPGParser extends YouTubeParser {
     void filter(List<VideoDownload> sNextVideoURL, String itag, URL url) {
         Integer i = Integer.decode(itag);
         StreamInfo vd = itagMap.get(i);
-
+        
         // get rid of webm
-        if (vd.c == Container.WEBM)
+        if (vd!=null && vd.c == Container.WEBM)
             return;
 
         super.filter(sNextVideoURL, itag, url);
